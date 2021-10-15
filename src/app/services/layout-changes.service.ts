@@ -6,7 +6,7 @@ import { DeviceType } from "../models/device-type";
 import { BreakpointDefinition } from "../models/breakpoint-definition";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class LayoutChangesService {
 
@@ -34,7 +34,7 @@ export class LayoutChangesService {
     return this.breakpointsDefinition.find(breakpointDefinition => this.breakpointObserver.isMatched(breakpointDefinition.mediaQuery))?.device;
   }
 
-  private getBreakpointStateDevice (breakpointState: BreakpointState): DeviceType | undefined {
+  private getBreakpointStateDevice(breakpointState: BreakpointState): DeviceType | undefined {
     const mediaQueryActive = Object.keys(breakpointState.breakpoints).find(breakpointKey => breakpointState.breakpoints[breakpointKey]);
     return this.breakpointsDefinition.find(breakpointDefinition => breakpointDefinition.mediaQuery === mediaQueryActive)?.device;
   }
